@@ -2,12 +2,15 @@
 
 def word_counter(word_list):
     words_list = {}
+    word_sorting = []
     for line in word_list:
         words = line.split(' ')
         for word in words:
-            if len(word) > 6:
-                word_amount = int(words_list.get(word.lower(), 0)) + 1
-                words_list[word.lower()] = word_amount
+            word_sorting.append(word)
+    for sorted_word in sorted(word_sorting):
+        if len(sorted_word) > 6:
+            word_amount = int(words_list.get(sorted_word.lower(), 0)) + 1
+            words_list[sorted_word.lower()] = word_amount
     return words_list
 
 
